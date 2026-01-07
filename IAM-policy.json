@@ -1,0 +1,41 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "ReadFromPublicBucket",
+			"Effect": "Allow",
+			"Action": [
+				"s3:GetObject",
+				"s3:GetObjectTagging"
+			],
+			"Resource": "arn:aws:s3:::leakblocker-public-a/*"
+		},
+		{
+			"Sid": "ListPublicBucket",
+			"Effect": "Allow",
+			"Action": "s3:ListBucket",
+			"Resource": "arn:aws:s3:::leakblocker-public-a"
+		},
+		{
+			"Sid": "WriteToQuarantineBucket",
+			"Effect": "Allow",
+			"Action": [
+				"s3:PutObject",
+				"s3:PutObjectTagging"
+			],
+			"Resource": "arn:aws:s3:::leakblocker-quarantine-b/*"
+		},
+		{
+			"Sid": "DeleteFromPublicBucket",
+			"Effect": "Allow",
+			"Action": "s3:DeleteObject",
+			"Resource": "arn:aws:s3:::leakblocker-public-a/*"
+		},
+		{
+			"Sid": "PublishToSNSTopic",
+			"Effect": "Allow",
+			"Action": "sns:Publish",
+			"Resource": "arn:aws:sns:eu-north-1:015337708858:LeakBlockerAlerts"
+		}
+	]
+}
