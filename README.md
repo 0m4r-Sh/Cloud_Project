@@ -55,7 +55,7 @@ Upload 'notes.txt' with normal text → stays in uploads bucket, no email alert.
 
 ### Test 2 (leak)
 Upload 'config.txt' containing:
-'password=123456' or 'AKIA..'
+'password=123456' or 'AKIA...'
 → moves to quarantine bucket + gets deleted from the uploads bucket + email alert.
 
 
